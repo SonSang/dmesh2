@@ -1,0 +1,1 @@
+Vectors and icons by <a href="https://www.instagram.com/stocklution/?hl=en?ref=svgrepo.com" target="_blank">Stocklution</a> in CC Attribution License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>.

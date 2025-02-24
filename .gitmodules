@@ -1,0 +1,9 @@
+[submodule "external/cgal"]
+	path = external/cgal
+	url = https://github.com/CGAL/cgal.git
+[submodule "external/nvdiffrast"]
+	path = external/nvdiffrast
+	url = https://github.com/NVlabs/nvdiffrast.git
+[submodule "external/dmesh2_renderer"]
+	path = external/dmesh2_renderer
+	url = https://github.com/SonSang/dmesh2_renderer.git

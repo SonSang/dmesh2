@@ -1,0 +1,88 @@
+log_dir: exp/result/d3/mvrecon
+device: 'cuda:0'
+
+args:
+  remove_nonmanifold: true
+  optimize_color: false
+
+  # args for init;
+  init_args:
+    grid_size: 0.05           # cell size of tetrahedral grid for point-wise real value initialization
+
+  # args for point-wise real value initialization;
+  init_preal:
+    real_lr: 1e-2
+    color_lr: 1e-2
+    lr_schedule: constant # linear, constant, exp
+
+    image_size: 256
+    patch_size: 256
+    num_views: 4
+
+    num_steps: 1000
+    vis_steps: 1000
+    refresh_steps: 500
+
+    real_reg_weight: 1e-3
+  
+  num_epochs: 2
+
+  # epoch args;
+  default_epoch_args:
+
+    optimize_ppos:
+      pos_lr: 1e-3
+      color_lr: 1e-2
+      lr_schedule: constant # linear, constant, exp
+
+      image_size: 1024
+      patch_size: 1024
+      num_views: 1
+
+      num_steps: 2000
+      vis_steps: 500
+
+      nn_cache_size: 10
+      nn_cache_steps: 50
+      qface_update_steps: 50
+
+      quality_reg_weight: 1e-3
+
+    optimize_preal:
+      real_lr: 1e-2
+      lr_schedule: constant # linear, constant, exp
+
+      image_size: 1024
+      patch_size: 1024
+      num_views: 1
+
+      num_steps: 2000
+      vis_steps: 2000
+
+      real_reg_weight: 1e-4
+
+  epoch_args:
+
+    epoch_0:
+
+      optimize_ppos:
+        image_size: 256
+        patch_size: 256
+        num_views: 1
+      
+      optimize_preal:
+        image_size: 256
+        patch_size: 256
+        num_views: 1
+
+    epoch_1:
+      
+      optimize_ppos:
+        image_size: 512
+        patch_size: 512
+        num_views: 1
+      
+      optimize_preal:
+        image_size: 512
+        patch_size: 512
+        num_views: 1

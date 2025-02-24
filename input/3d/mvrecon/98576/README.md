@@ -1,0 +1,1 @@
+This input data was generated from [Thingi10K](https://ten-thousand-models.appspot.com/) dataset's [98576](https://ten-thousand-models.appspot.com/detail.html?file_id=98576) data.

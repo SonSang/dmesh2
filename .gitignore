@@ -1,0 +1,17 @@
+.vscode/
+__pycache__
+
+data/3d/
+
+*.egg-info
+
+CMakeFiles/
+*.cmake
+CMakeCache.txt
+*.a
+Makefile
+
+exp/result
+
+build/
+*.so

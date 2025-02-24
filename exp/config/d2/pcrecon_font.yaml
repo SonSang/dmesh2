@@ -1,0 +1,36 @@
+log_dir: exp/result/d2/pcrecon
+device: 'cuda:0'
+
+args:
+  init_args:
+    grid_size: 0.005   # 1000 * 1000
+    
+  lr:
+    pos: 1e-3
+    real: 3e-1
+    weight: 1e-2
+
+  init_preal:
+    lr_schedule: constant # linear, constant, exp
+
+    num_steps: 100
+    vis_steps: 100
+
+    real_reg_weight: 1e-4
+
+  optimize_ppos:
+    lr_schedule: constant # linear, constant, exp
+
+    num_steps: 500
+    vis_steps: 500
+
+  optimize_pweight:
+    lr_schedule: constant # linear, constant, exp
+
+    batch_size: 1024              # number of sample batches for estimating policy gradient
+    possible_edge_k: 10           # number of neighbors to use for finding possible edge combinations
+    chamfer_k: 40                 # number of neighbors to use for estimating chamfer distance
+    num_reward_weight: 1e-5       # weight of regularizer for removing unnecessary points
+    num_epochs: 10
+    num_steps: 2000
+    vis_steps: 2000

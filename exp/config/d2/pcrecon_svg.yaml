@@ -1,0 +1,35 @@
+log_dir: exp/result/d2/pcrecon
+device: 'cuda:0'
+
+args:
+  init_args:
+    grid_size: 0.002   # 1000 * 1000
+    
+  lr:
+    pos: 1e-3
+    real: 3e-1
+    weight: 1e-2
+
+  init_preal:
+    lr_schedule: constant # linear, constant, exp
+
+    num_steps: 100
+    vis_steps: 100
+
+    real_reg_weight: 1e-4
+
+  optimize_ppos:
+    lr_schedule: constant # linear, constant, exp
+
+    num_steps: 500
+    vis_steps: 500
+
+  # don't do RL-ball
+  optimize_pweight:
+    lr_schedule: constant # linear, constant, exp
+
+    neighbor_k: 0                 # number of neighbors to use for RL-ball algorithm
+    num_reward_weight: 0          # weight of regularizer for removing unnecessary points
+    num_epochs: 0
+    num_steps: 0
+    vis_steps: 0
