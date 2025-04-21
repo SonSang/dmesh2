@@ -925,7 +925,7 @@ class MVRecon():
                 
                 if step % refresh_steps == 0:
                     # add 0.2 to face reals that are adjacent to real faces
-                    real_faces = th.where(preal > INIT_PREAL_THRESH)[0]
+                    real_faces = th.where((preal[faces] > INIT_PREAL_THRESH).all(dim=1))[0]
                     verts_on_real_faces = th.unique(faces[real_faces])
 
                     tmp_preal = th.zeros_like(self.preal)
